@@ -1,0 +1,33 @@
+CREATE DATABASE streaming;
+
+USE streaming;
+
+CREATE TABLE musicas (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE bandas (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE albuns (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    bandas_id INT NOT NULL,
+    FOREIGN KEY(bandas_id) REFERENCES bandas(id)
+);
+
+ALTER TABLE albuns ADD COLUMN dataLancamento DATE;
+
+CREATE TABLE musicas_bandas (
+	musicas_id INT NOT NULL,
+    bandas_id INT NOT NULL
+);
+
+SHOW TABLES;
+
+
+
+
